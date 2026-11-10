@@ -1,2189 +1,1495 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Al-Hamd Chit | 2026</title>
-
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- Bootstrap 5 -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-    <!-- Bootstrap Icons -->
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-        rel="stylesheet"
-    >
-
-    <!-- html2pdf -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-    <style>
-
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
-
-        :root {
-            --green: #176b4d;
-            --green-dark: #10543b;
-            --green-light: #eaf5ef;
-
-            --gold: #a97b20;
-            --gold-light: #faf4e3;
-
-            --black: #1f2823;
-            --text: #303934;
-            --muted: #7b8580;
-
-            --background: #f6f8f7;
-            --white: #ffffff;
-            --border: #e3e8e5;
-        }
-
-
-        /* =====================================================
-           GLOBAL
-        ===================================================== */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            background: var(--background);
-            color: var(--text);
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
-
-        .navbar {
-            background: var(--white);
-            border-bottom: 1px solid var(--border);
-            min-height: 65px;
-        }
-
-        .brand {
-            color: var(--green-dark);
-            font-size: 18px;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .brand small {
-            display: block;
-            color: var(--muted);
-            font-size: 9px;
-            font-weight: 400;
-            margin-top: 2px;
-        }
-
-        .nav-link {
-            color: #68726d !important;
-            font-size: 12px;
-            font-weight: 500;
-            margin-left: 15px;
-        }
-
-        .nav-link:hover {
-            color: var(--green) !important;
-        }
-
-
-        /* =====================================================
-           MAIN
-        ===================================================== */
-
-        .main {
-            padding: 35px 0 40px;
-        }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
-        .header-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 18px;
-        }
-
-        .header-left h1 {
-            margin: 8px 0 3px;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--black);
-        }
-
-        .header-left p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 12px;
-        }
-
-        .established {
-            display: inline-block;
-            padding: 5px 9px;
-            border-radius: 5px;
-            background: var(--green-light);
-            color: var(--green);
-            font-size: 9px;
-            font-weight: 700;
-            letter-spacing: .5px;
-        }
-
-        .pdf-button {
-            border: none;
-            background: var(--green);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 7px;
-            font-family: inherit;
-            font-size: 11px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: .2s;
-        }
-
-        .pdf-button:hover {
-            background: var(--green-dark);
-        }
-
-
-        /* =====================================================
-           SUMMARY
-        ===================================================== */
-
-        .summary-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 11px;
-            padding: 18px;
-            height: 100%;
-        }
-
-        .summary-label {
-            color: var(--muted);
-            font-size: 10px;
-            margin-bottom: 6px;
-        }
-
-        .summary-value {
-            color: var(--black);
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-
-        /* =====================================================
-           PROGRESS
-        ===================================================== */
-
-        .progress-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 11px;
-            padding: 20px;
-        }
-
-        .progress-title {
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .progress-info {
-            color: var(--muted);
-            font-size: 10px;
-            margin-top: 2px;
-        }
-
-        .progress-percentage {
-            color: var(--green);
-            font-size: 13px;
-            font-weight: 700;
-        }
-
-        .progress {
-            height: 8px;
-            margin-top: 14px;
-            background: #e9eeeb;
-            border-radius: 20px;
-        }
-
-        .progress-bar {
-            background: var(--green);
-            border-radius: 20px;
-        }
-
-
-        /* =====================================================
-           SECTIONS
-        ===================================================== */
-
-        .section {
-            margin-top: 25px;
-        }
-
-        .section-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 11px;
-        }
-
-        .section-heading h2 {
-            margin: 0;
-            color: var(--black);
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .section-heading span {
-            color: var(--muted);
-            font-size: 10px;
-        }
-
-
-        /* =====================================================
-           GOOGLE MEET
-        ===================================================== */
-
-        .meeting-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            width: 100%;
-            padding: 17px 18px;
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 11px;
-            color: var(--text);
-            transition: .2s ease;
-        }
-
-        .meeting-card:hover {
-            border-color: #cbd8d1;
-            background: #fbfcfb;
-            color: var(--text);
-        }
-
-        .meeting-icon {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 9px;
-            background: var(--green-light);
-            color: var(--green);
-            font-size: 19px;
-        }
-
-        .meeting-content {
-            flex: 1;
-        }
-
-        .meeting-content h3 {
-            margin: 0 0 3px;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .meeting-content p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 10px;
-        }
-
-        .meeting-arrow {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-
-        /* =====================================================
-           PAYMENT TRACKER
-        ===================================================== */
-
-        .table-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 11px;
-            overflow: hidden;
-        }
-
-        .payment-table {
-            min-width: 1050px;
-            margin: 0;
-        }
-
-        .payment-table thead {
-            background: #f4f7f5;
-        }
-
-        .payment-table th {
-            text-align: center;
-            vertical-align: middle;
-            line-height: 1.4;
-            font-size: 9px;
-            font-weight: 600;
-            color: #68736d;
-            padding: 10px 7px;
-            white-space: nowrap;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .payment-table th:first-child {
-            text-align: left;
-            min-width: 145px;
-        }
-
-        .payment-table td {
-            text-align: center;
-            vertical-align: middle;
-            padding: 11px 6px;
-            font-size: 9px;
-            color: var(--text);
-            border-bottom: 1px solid #edf0ee;
-        }
-
-        .payment-table tbody tr:last-child td {
-            border-bottom: none;
-        }
-
-        .payment-table .member-cell {
-            text-align: left;
-            font-weight: 600;
-            color: var(--black);
-            white-space: nowrap;
-        }
-
-        .payment-paid,
-        .payment-unpaid {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 48px;
-            padding: 4px 6px;
-            border-radius: 20px;
-            font-size: 7px;
-            font-weight: 600;
-        }
-
-        .payment-paid {
-            color: #18734d;
-            background: #e9f6ef;
-        }
-
-        .payment-unpaid {
-            color: #98701a;
-            background: #fff5d8;
-        }
-
-        .payment-legend {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            flex-wrap: wrap;
-            margin-top: 10px;
-            padding: 0 4px;
-            color: var(--muted);
-            font-size: 8px;
-        }
-
-        .payment-legend span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .payment-legend i {
-            font-size: 9px;
-        }
-
-        .payment-legend strong {
-            color: var(--text);
-        }
-
-
-        /* =====================================================
-           MEMBERS
-        ===================================================== */
-
-        .members-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 11px;
-            overflow: hidden;
-        }
-
-        .member {
-            display: flex;
-            align-items: center;
-            gap: 11px;
-            padding: 12px 14px;
-            border-bottom: 1px solid #edf0ee;
-        }
-
-        .avatar {
-            width: 34px;
-            height: 34px;
-            min-width: 34px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--green-light);
-            color: var(--green);
-            font-size: 9px;
-            font-weight: 700;
-        }
-
-        .member-name {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .member-number {
-            color: var(--muted);
-            font-size: 8px;
-            margin-top: 2px;
-        }
-
-
-        /* =====================================================
-           RULES
-        ===================================================== */
-
-        .rules-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 11px;
-            overflow: hidden;
-        }
-
-        .rule {
-            display: flex;
-            gap: 14px;
-            padding: 17px 18px;
-            border-bottom: 1px solid #edf0ee;
-        }
-
-        .rule:last-child {
-            border-bottom: none;
-        }
-
-        .rule-number {
-            width: 32px;
-            height: 32px;
-            min-width: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 7px;
-            background: var(--green-light);
-            color: var(--green);
-            font-size: 9px;
-            font-weight: 700;
-        }
-
-        .rule-content {
-            flex: 1;
-        }
-
-        .rule-content h6 {
-            margin: 1px 0 4px;
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--black);
-        }
-
-        .rule-content p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 10px;
-            line-height: 1.7;
-        }
-
-        .rule-content strong {
-            color: var(--text);
-        }
-
-        .special-rule {
-            background: #fffdf7;
-        }
-
-        .special-rule .rule-number {
-            background: var(--gold-light);
-            color: var(--gold);
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            padding: 25px 0;
-            text-align: center;
-            color: var(--muted);
-            font-size: 9px;
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 768px) {
-
-            .main {
-                padding-top: 20px;
-            }
-
-            .header-card {
-                padding: 20px;
-            }
-
-            .header-left h1 {
-                font-size: 20px;
-            }
-
-            .pdf-button {
-                margin-top: 15px;
-            }
-
-            .table-card {
-                overflow-x: auto;
-            }
-
-            .payment-table {
-                min-width: 1050px;
-            }
-
-            .meeting-card {
-                padding: 15px;
-            }
-
-            .rule {
-                padding: 15px;
-            }
-
-            .section-heading {
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .section-heading span {
-                text-align: right;
-            }
-        }
-
-
-        /* =====================================================
-           PDF MODE
-        ===================================================== */
-
-        .pdf-mode {
-            background: white !important;
-        }
-
-        .pdf-mode .navbar,
-        .pdf-mode .pdf-button {
-            display: none !important;
-        }
-
-        .pdf-mode .main {
-            padding-top: 0;
-            padding-bottom: 15px;
-        }
-
-        .pdf-mode .container {
-            max-width: 100% !important;
-        }
-
-        .pdf-mode .header-card {
-            margin-bottom: 14px;
-        }
-
-        .pdf-mode .section {
-            margin-top: 18px;
-        }
-
-        .pdf-mode .payment-table {
-            min-width: 0;
-            width: 100%;
-        }
-
-        .pdf-mode .payment-table th {
-            font-size: 7px;
-            padding: 7px 3px;
-        }
-
-        .pdf-mode .payment-table td {
-            font-size: 7px;
-            padding: 8px 3px;
-        }
-
-        .pdf-mode .payment-table .member-cell {
-            font-size: 8px;
-        }
-
-        .pdf-mode .payment-paid,
-        .pdf-mode .payment-unpaid {
-            min-width: 0;
-            padding: 3px 5px;
-            font-size: 6px;
-        }
-
-        .pdf-mode .payment-legend {
-            font-size: 7px;
-            margin-top: 7px;
-        }
-
-
-        /* =====================================================
-           PRINT / PDF PAGE CONTROL
-        ===================================================== */
-
-        .pdf-section,
-        .summary-card,
-        .progress-card,
-        .meeting-card,
-        .rules-card,
-        .members-card,
-        .table-card,
-        .rule,
-        tr {
-            page-break-inside: avoid;
-            break-inside: avoid;
-        }
-
-        thead {
-            display: table-header-group;
-        }
-
-        tfoot {
-            display: table-footer-group;
-        }
-
-
-        /* =====================================================
-           A4 PAGE
-        ===================================================== */
-
-        @page {
-            size: A4 portrait;
-            margin: 10mm;
-        }
-
-        @media print {
-
-            body {
-                background: white;
-            }
-
-            .navbar,
-            .pdf-button {
-                display: none !important;
-            }
-
-            .main {
-                padding: 0;
-            }
-
-            .section {
-                margin-top: 18px;
-            }
-
-            .header-card {
-                margin-bottom: 14px;
-            }
-
-            .summary-card,
-            .progress-card,
-            .meeting-card,
-            .rules-card,
-            .members-card,
-            .table-card {
-                box-shadow: none !important;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al-Hamd Chit | 2026–2027</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+:root {
+    --green:#176b4d;
+    --green-dark:#10543b;
+    --green-light:#eaf5ef;
+    --gold:#c49a43;
+    --black:#1f2823;
+    --text:#303934;
+    --muted:#7b8580;
+    --bg:#f5f8f6;
+    --border:#e3e8e5;
+}
+* {box-sizing:border-box;}
+body {
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
+.navbar {
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.brand {
+    color:var(--green-dark);
+    font-size:19px;
+    font-weight:800;
+}
+.brand small {
+    display:block;
+    font-size:9px;
+    color:var(--muted);
+    font-weight:400;
+}
+.nav-link {
+    font-size:12px;
+    font-weight:500;
+    color:#68726d!important;
+}
+.nav-link:hover {color:var(--green)!important;}
+.main {padding:30px 0 40px;}
+
+.header-card,.summary-card,.progress-card,
+.table-card,.members-card,.rules-card,
+.meeting-card,.wheel-card,.history-card {
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:13px;
+}
+.header-card {
+    padding:25px;
+    margin-bottom:18px;
+}
+.established {
+    display:inline-block;
+    padding:5px 10px;
+    background:var(--green-light);
+    color:var(--green);
+    border-radius:5px;
+    font-size:9px;
+    font-weight:700;
+}
+.header-card h1 {
+    font-size:25px;
+    font-weight:800;
+    color:var(--black);
+    margin:10px 0 3px;
+}
+.header-card p {
+    color:var(--muted);
+    font-size:12px;
+    margin:0;
+}
+.btn-green {
+    background:var(--green);
+    color:#fff;
+    border:0;
+    border-radius:8px;
+    padding:10px 15px;
+    font-size:11px;
+    font-weight:600;
+}
+.btn-green:hover {
+    background:var(--green-dark);
+    color:#fff;
+}
+.section {margin-top:27px;}
+.section-heading {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:12px;
+}
+.section-heading h2 {
+    font-size:16px;
+    font-weight:700;
+    color:var(--black);
+    margin:0;
+}
+.section-heading span {
+    font-size:10px;
+    color:var(--muted);
+}
+.summary-card {
+    padding:18px;
+    height:100%;
+}
+.summary-label {
+    color:var(--muted);
+    font-size:10px;
+    margin-bottom:7px;
+}
+.summary-value {
+    font-size:21px;
+    font-weight:800;
+    color:var(--black);
+}
+.summary-icon {
+    color:var(--green);
+    font-size:21px;
+    margin-bottom:10px;
+}
+.progress-card {padding:20px;}
+.progress-title {
+    font-size:12px;
+    font-weight:700;
+}
+.progress-info {
+    font-size:10px;
+    color:var(--muted);
+    margin-top:4px;
+}
+.progress {
+    height:9px;
+    border-radius:20px;
+    margin-top:15px;
+    background:#e9eeeb;
+}
+.progress-bar {
+    background:var(--green);
+    border-radius:20px;
+}
+.table-card {overflow:hidden;}
+.table-responsive {overflow-x:auto;}
+.payment-table {
+    min-width:950px;
+    margin:0;
+}
+.payment-table th {
+    background:#f2f6f3;
+    color:#68736d;
+    font-size:9px;
+    padding:12px 7px;
+    text-align:center;
+    white-space:nowrap;
+}
+.payment-table th:first-child,
+.payment-table td:first-child {
+    text-align:left;
+    min-width:180px;
+}
+.payment-table td {
+    padding:10px 7px;
+    text-align:center;
+    font-size:9px;
+    vertical-align:middle;
+    border-bottom:1px solid #edf0ee;
+}
+.member-cell {
+    font-weight:600;
+    color:var(--black);
+    white-space:nowrap;
+}
+.payment-badge {
+    border:0;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:8px;
+    font-weight:700;
+}
+.paid {
+    color:#18734d;
+    background:#e9f6ef;
+}
+.unpaid {
+    color:#98701a;
+    background:#fff5d8;
+}
+.admin-edit {cursor:pointer;}
+.payment-legend {
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    padding:12px 4px;
+    font-size:9px;
+    color:var(--muted);
+}
+.members-card,.rules-card {overflow:hidden;}
+.member {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:13px;
+    border-bottom:1px solid #edf0ee;
+}
+.avatar {
+    width:40px;
+    height:40px;
+    min-width:40px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--green-light);
+    color:var(--green);
+    font-size:10px;
+    font-weight:800;
+}
+.member-name {
+    font-size:10px;
+    font-weight:700;
+}
+.member-number {
+    font-size:8px;
+    color:var(--muted);
+    margin-top:3px;
+}
+.rule {
+    display:flex;
+    gap:14px;
+    padding:16px;
+    border-bottom:1px solid #edf0ee;
+}
+.rule:last-child {border:0;}
+.rule-number {
+    width:33px;
+    height:33px;
+    min-width:33px;
+    border-radius:8px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--green-light);
+    color:var(--green);
+    font-size:10px;
+    font-weight:800;
+}
+.rule h6 {
+    font-size:11px;
+    font-weight:700;
+    margin:2px 0 5px;
+}
+.rule p {
+    font-size:10px;
+    line-height:1.8;
+    color:var(--muted);
+    margin:0;
+}
+.special-rule {background:#fffdf7;}
+.special-rule .rule-number {
+    background:#faf4e3;
+    color:var(--gold);
+}
+
+/* MEETING */
+.meeting-card {
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:17px;
+    color:var(--text);
+    text-decoration:none;
+}
+.meeting-card:hover {
+    border-color:var(--green);
+    color:var(--green);
+}
+.meeting-icon {
+    width:45px;
+    height:45px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--green-light);
+    color:var(--green);
+    font-size:20px;
+}
+.meeting-content {flex:1;}
+.meeting-content h3 {
+    font-size:13px;
+    font-weight:700;
+    margin:0 0 4px;
+}
+.meeting-content p {
+    font-size:10px;
+    color:var(--muted);
+    margin:0;
+}
+
+/* LUCKY WHEEL */
+.wheel-card {
+    padding:25px 15px;
+    text-align:center;
+    overflow:hidden;
+}
+.wheel-card h2 {
+    color:var(--green-dark);
+    font-size:22px;
+    font-weight:800;
+}
+.wheel-card .subtitle {
+    color:var(--muted);
+    font-size:11px;
+    margin-bottom:25px;
+}
+.wheel-wrap {
+    position:relative;
+    width:min(90vw,410px);
+    aspect-ratio:1;
+    margin:0 auto 22px;
+}
+#wheel {
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    border:7px solid white;
+    box-shadow:0 8px 30px rgba(0,0,0,.18);
+    transform:rotate(0deg);
+}
+.pointer {
+    position:absolute;
+    top:-14px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:5;
+    width:0;
+    height:0;
+    border-left:17px solid transparent;
+    border-right:17px solid transparent;
+    border-top:37px solid var(--gold);
+    filter:drop-shadow(0 3px 3px rgba(0,0,0,.3));
+}
+.hub {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    background:white;
+    color:var(--green-dark);
+    border:4px solid var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    font-weight:800;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+}
+.spin-button {
+    background:var(--gold);
+    color:#fff;
+    border:0;
+    border-radius:50px;
+    padding:13px 45px;
+    font-weight:800;
+    font-size:14px;
+    box-shadow:0 5px 15px rgba(196,154,67,.3);
+}
+.spin-button:hover {
+    background:#a97b20;
+    color:#fff;
+}
+.spin-button:disabled {opacity:.6;}
+.wheel-status {
+    color:var(--green);
+    font-size:12px;
+    font-weight:600;
+    min-height:25px;
+    margin-top:13px;
+}
+.history-card {
+    padding:17px;
+    text-align:left;
+}
+.history-list {
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+.history-list li {
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    padding:10px;
+    font-size:10px;
+    border-bottom:1px solid #edf0ee;
+}
+.history-list li:last-child {border:0;}
+.winner-number {
+    font-size:50px;
+    font-weight:800;
+    color:var(--green);
+}
+.admin-hint {
+    font-size:9px;
+    color:var(--muted);
+    margin-top:8px;
+}
+footer {
+    padding:25px 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:9px;
+}
+@media(max-width:768px) {
+    .main {padding-top:18px;}
+    .header-card {padding:19px;}
+    .header-card h1 {font-size:20px;}
+    .summary-value {font-size:18px;}
+    .wheel-card {padding:22px 10px;}
+    .section-heading {align-items:flex-start;}
+}
+@media print {
+    .navbar,.no-pdf,footer {display:none!important;}
+    body {background:#fff;}
+    .main {padding:0;}
+    .section {margin-top:17px;}
+}
+.pdf-mode .navbar,
+.pdf-mode .no-pdf,
+.pdf-mode footer {display:none!important;}
+.pdf-mode .payment-table {
+    min-width:0;
+    width:100%;
+}
+.pdf-mode .payment-table th,
+.pdf-mode .payment-table td {
+    font-size:7px;
+    padding:6px 3px;
+}
+.pdf-mode .wheel-wrap {max-width:330px;}
+.pdf-mode .section,
+.pdf-mode .summary-card,
+.pdf-mode .progress-card,
+.pdf-mode .wheel-card,
+.pdf-mode .rule,
+.pdf-mode tr {
+    break-inside:avoid;
+    page-break-inside:avoid;
+}
+</style>
 </head>
-
 
 <body>
 
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+    <a class="navbar-brand brand" href="#">
+        Al-Hamd Chit
+        <small>Monthly Chitty Management</small>
+    </a>
 
-    <!-- =====================================================
-         NAVBAR
-    ===================================================== -->
+    <button class="navbar-toggler" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <nav class="navbar navbar-expand-lg">
+    <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#overview">Overview</a></li>
+            <li class="nav-item"><a class="nav-link" href="#meeting">Meeting</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tracker">Payments</a></li>
+            <li class="nav-item"><a class="nav-link" href="#members">Members</a></li>
+            <li class="nav-item"><a class="nav-link" href="#wheelSection">Lucky Wheel</a></li>
+            <li class="nav-item"><a class="nav-link" href="#rules">Rules</a></li>
+            <li class="nav-item ms-lg-3">
+                <button class="btn-green no-pdf" id="loginBtn">
+                    <i class="bi bi-lock"></i> 
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+</nav>
 
-        <div class="container">
+<div id="report">
+<main class="main">
+<div class="container">
 
-            <a href="#" class="navbar-brand brand">
+<!-- HEADER -->
+<div class="header-card" id="overview">
+<div class="row align-items-center">
+    <div class="col-md-8">
+        <span class="established">ESTABLISHED 2026</span>
+        <h1>Al Hamd Monthly Chit</h1>
+        <p>Al-Hamd Monthly Chit · 2026–2027</p>
+    </div>
+    <div class="col-md-4 text-md-end no-pdf">
+        <button class="btn-green mt-3 mt-md-0" onclick="downloadPDF()">
+            <i class="bi bi-file-earmark-pdf"></i>
+            Download PDF Report
+        </button>
+    </div>
+</div>
+</div>
 
-                Al-Hamd Chit
-
-                <small>
-                    Monthly Chitty Management
-                </small>
-
-            </a>
-
-
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarMenu"
-                aria-controls="navbarMenu"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-
-                <span class="navbar-toggler-icon"></span>
-
-            </button>
-
-
-            <div
-                class="collapse navbar-collapse"
-                id="navbarMenu">
-
-                <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#overview">
-                            Overview
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#meeting">
-                            Meeting
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#tracker">
-                            Tracker
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#members">
-                            Members
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#rules">
-                            Rules
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
+<!-- SUMMARY -->
+<div class="row g-3">
+    <div class="col-6 col-lg-3">
+        <div class="summary-card">
+            <div class="summary-icon"><i class="bi bi-wallet2"></i></div>
+            <div class="summary-label">Total Chit Amount</div>
+            <div class="summary-value">₹10,000</div>
         </div>
-
-    </nav>
-
-
-    <!-- =====================================================
-         REPORT
-    ===================================================== -->
-
-    <div id="report">
-
-        <main class="main">
-
-            <div class="container">
-
-
-                <!-- =====================================================
-                     HEADER
-                ===================================================== -->
-
-                <div class="header-card pdf-section" id="overview">
-
-                    <div class="row align-items-center">
-
-                        <div class="col-md-8">
-
-                            <span class="established">
-                                EST. 2026
-                            </span>
-
-                            <div class="header-left">
-
-                                <h1>
-                                    അൽഹംദ് പ്രതിമാസ ചിട്ടി
-                                </h1>
-
-                                <p>
-                                    Al-Hamd Monthly Chit
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-4 text-md-end">
-
-                            <button
-                                class="pdf-button"
-                                onclick="downloadPDF()">
-
-                                <i class="bi bi-file-earmark-pdf me-1"></i>
-
-                                Download PDF Report
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =====================================================
-                     SUMMARY
-                ===================================================== -->
-
-                <div class="row g-3 pdf-section">
-
-
-                    <div class="col-6 col-lg-3">
-
-                        <div class="summary-card">
-
-                            <div class="summary-label">
-                                Total Chit Amount
-                            </div>
-
-                            <div class="summary-value">
-                                ₹10,000
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-6 col-lg-3">
-
-                        <div class="summary-card">
-
-                            <div class="summary-label">
-                                Monthly Installment
-                            </div>
-
-                            <div class="summary-value">
-                                ₹1,000
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-6 col-lg-3">
-
-                        <div class="summary-card">
-
-                            <div class="summary-label">
-                                Duration
-                            </div>
-
-                            <div class="summary-value">
-                                10 Months
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="col-6 col-lg-3">
-
-                        <div class="summary-card">
-
-                            <div class="summary-label">
-                                Members
-                            </div>
-
-                            <div class="summary-value">
-                                10
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-
-                <!-- =====================================================
-                     PROGRESS
-                ===================================================== -->
-
-                <div class="section pdf-section">
-
-                    <div class="progress-card">
-
-                        <div class="d-flex justify-content-between align-items-center">
-
-                            <div>
-
-                                <div class="progress-title">
-                                    Chitty Progress
-                                </div>
-
-                                <div class="progress-info">
-                                    0 of 10 months completed
-                                </div>
-
-                            </div>
-
-
-                            <div class="progress-percentage">
-                                0%
-                            </div>
-
-                        </div>
-
-
-                        <div class="progress">
-
-                            <div
-                                class="progress-bar"
-                                role="progressbar"
-                                style="width: 0%;"
-                                aria-valuenow="0"
-                                aria-valuemin="0"
-                                aria-valuemax="100">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =====================================================
-                     MEETING
-                ===================================================== -->
-
-                <div class="section pdf-section" id="meeting">
-
-                    <div class="section-heading">
-
-                        <h2>
-                            Monthly Meeting
-                        </h2>
-
-                        <span>
-                            10th · 9:30 PM
-                        </span>
-
-                    </div>
-
-
-                    <!-- CHANGE ONLY THIS LINK -->
-
-                    <a
-                        href="https://meet.google.com/YOUR-MEETING-ID"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="meeting-card">
-
-                        <div class="meeting-icon">
-
-                            <i class="bi bi-camera-video-fill"></i>
-
-                        </div>
-
-
-                        <div class="meeting-content">
-
-                            <h3>
-                                Join Google Meet
-                            </h3>
-
-                            <p>
-                                Monthly draw / auction
-                            </p>
-
-                        </div>
-
-
-                        <i class="bi bi-arrow-up-right meeting-arrow"></i>
-
-                    </a>
-
-                </div>
-
-
-                <!-- =====================================================
-                     MONTHLY PAYMENT TRACKER
-                ===================================================== -->
-
-                <div class="section pdf-section" id="tracker">
-
-                    <div class="section-heading">
-
-                        <h2>
-                            Monthly Payment Tracker
-                        </h2>
-
-                        <span>
-                            Oct 2026 – Jul 2027
-                        </span>
-
-                    </div>
-
-
-                    <div class="table-card">
-
-                        <div class="table-responsive">
-
-                            <table class="table payment-table">
-
-                                <thead>
-
-                                    <tr>
-
-                                        <th>
-                                            Member
-                                        </th>
-
-                                        <th>
-                                            Oct<br>2026
-                                        </th>
-
-                                        <th>
-                                            Nov<br>2026
-                                        </th>
-
-                                        <th>
-                                            Dec<br>2026
-                                        </th>
-
-                                        <th>
-                                            Jan<br>2027
-                                        </th>
-
-                                        <th>
-                                            Feb<br>2027
-                                        </th>
-
-                                        <th>
-                                            Mar<br>2027
-                                        </th>
-
-                                        <th>
-                                            Apr<br>2027
-                                        </th>
-
-                                        <th>
-                                            May<br>2027
-                                        </th>
-
-                                        <th>
-                                            Jun<br>2027
-                                        </th>
-
-                                        <th>
-                                            Jul<br>2027
-                                        </th>
-
-                                    </tr>
-
-                                </thead>
-
-
-                                <tbody>
-
-
-                                    <!-- MEMBER 01 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            Sakheer PA
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-paid">
-                                                Paid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 02 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            Sakheer PA
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-paid">
-                                                Paid
-                                            </span>
-                                        </td>
-
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 03 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            Token Number ( 333 )
-                                        </td>
-
-                                        <td><span class="payment-paid">paid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 04 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            Anas Moulavi
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-paid">
-                                                paid
-                                            </span>
-                                        </td>
-
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 05 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            Irfan Abrari
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-paid">
-                                             Paid
-                                            </span>
-                                        </td>
-
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 06 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            Althaf Abrari
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 07 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            Nuaim Abrari
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-paid">
-                                                paid
-                                            </span>
-                                        </td>
-
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 08 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                             Token Number ( 812 )
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-paid">
-                                                paid
-                                            </span>
-                                        </td>
-
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 09 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            Haleel Rahman Abrari
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-unpaid">
-                                                Unpaid
-                                            </span>
-                                        </td>
-
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                    <!-- MEMBER 10 -->
-
-                                    <tr>
-
-                                        <td class="member-cell">
-                                            TOKEN number ( 956 )
-                                        </td>
-
-                                        <td>
-                                            <span class="payment-paid">
-                                                paid
-                                            </span>
-                                        </td>
-
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-                                        <td><span class="payment-unpaid">Unpaid</span></td>
-
-                                    </tr>
-
-
-                                </tbody>
-
-                            </table>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- PAYMENT LEGEND -->
-
-                    <div class="payment-legend">
-
-                        <span>
-                            <i class="bi bi-check-circle-fill"></i>
-                            Paid
-                        </span>
-
-                        <span>
-                            <i class="bi bi-clock-fill"></i>
-                            Unpaid
-                        </span>
-
-                        <span>
-                            Monthly installment:
-                            <strong>₹1,000</strong>
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =====================================================
-                     MEMBERS
-                ===================================================== -->
-
-                <div class="section pdf-section" id="members">
-
-                    <div class="section-heading">
-
-                        <h2>
-                            Members
-                        </h2>
-
-                        <span>
-                            10 Members
-                        </span>
-
-                    </div>
-
-
-                    <div class="members-card">
-
-                        <div class="row g-0">
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        SP
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Sakheer PA
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 01
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        SP
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Sakheer PA
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 02
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        AD
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Token Number  ( 333 )
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 03
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        AM
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Anas Moulavi
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 04
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        IA
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Irfan Abrari
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 05
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        NA
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Nuaim Abrari
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 06
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        AA
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Althaf Abrari
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 07
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        SF
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Token Number ( 812 )
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 08
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        HR
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Haleel Rahman Abrari
-                                        </div>
-
-                                        <div class="member-number">
-                                            Member 09
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="member">
-
-                                    <div class="avatar">
-                                        TK
-                                    </div>
-
-                                    <div>
-                                        <div class="member-name">
-                                            Tocken Number ( 956 )                                        </div>
-
-                                        <div class="member-number">
-                                            Member 10
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- =====================================================
-                     RULES
-                ===================================================== -->
-
-                <div class="section pdf-section" id="rules">
-
-                    <div class="section-heading">
-
-                        <h2>
-                            Rules & Regulations
-                        </h2>
-
-                        <span>
-                            Al-Hamd Chit
-                        </span>
-
-                    </div>
-
-
-                    <div class="rules-card">
-
-
-                        <div class="rule">
-
-                            <div class="rule-number">
-                                01
-                            </div>
-
-                            <div class="rule-content">
-
-                                <h6>
-                                    Monthly Payment Date
-                                </h6>
-
-                                <p>
-                                    The monthly installment of
-                                    <strong>₹1,000</strong>
-                                    must be paid to the group leader
-                                    between the
-                                    <strong>1st and 9th</strong>
-                                    of every month.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="rule">
-
-                            <div class="rule-number">
-                                02
-                            </div>
-
-                            <div class="rule-content">
-
-                                <h6>
-                                    Draw / Auction Time
-                                </h6>
-
-                                <p>
-                                    The online draw will be conducted on the
-                                    <strong>10th of every month at 9:30 PM.</strong>
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="rule">
-
-                            <div class="rule-number">
-                                03
-                            </div>
-
-                            <div class="rule-content">
-
-                                <h6>
-                                    Fund Disbursement
-                                </h6>
-
-                                <p>
-                                    The winning amount will be handed over to
-                                    the winner within
-                                    <strong>10 days</strong>
-                                    of the draw / auction.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="rule">
-
-                            <div class="rule-number">
-                                04
-                            </div>
-
-                            <div class="rule-content">
-
-                                <h6>
-                                    Punctuality & Cooperation
-                                </h6>
-
-                                <p>
-                                    Everyone is requested to pay the amount
-                                    within the specified time. Those facing
-                                    emergency situations should inform in advance.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="rule">
-
-                            <div class="rule-number">
-                                05
-                            </div>
-
-                            <div class="rule-content">
-
-                                <h6>
-                                    Transparency
-                                </h6>
-
-                                <p>
-                                    All monthly accounts will be updated in the
-                                    group on the
-                                    <strong>same day.</strong>
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="rule special-rule">
-
-                            <div class="rule-number">
-                                06
-                            </div>
-
-                            <div class="rule-content">
-
-                                <h6>
-                                    Special Note
-                                </h6>
-
-                                <p>
-                                    The chit amount for the
-                                    <strong>first month</strong>
-                                    goes to the chit organizer.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </main>
-
-
-        <!-- =====================================================
-             FOOTER
-        ===================================================== -->
-
-        <footer>
-
-            © 2026 Al-Hamd Chit · All Rights Reserved
-
-        </footer>
-
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="summary-card">
+            <div class="summary-icon"><i class="bi bi-cash-stack"></i></div>
+            <div class="summary-label">Monthly Installment</div>
+            <div class="summary-value">₹1,000</div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="summary-card">
+            <div class="summary-icon"><i class="bi bi-calendar3"></i></div>
+            <div class="summary-label">Duration</div>
+            <div class="summary-value">10 Months</div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="summary-card">
+            <div class="summary-icon"><i class="bi bi-people"></i></div>
+            <div class="summary-label">Members</div>
+            <div class="summary-value">10</div>
+        </div>
+    </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="section">
+<div class="progress-card">
+<div class="d-flex justify-content-between align-items-center">
+    <div>
+        <div class="progress-title">Chitty Progress</div>
+        <div class="progress-info" id="progressInfo">0 of 10 months completed</div>
+    </div>
+    <div id="progressPercent">0%</div>
+</div>
+<div class="progress">
+    <div class="progress-bar" id="progressBar" style="width:0%"></div>
+</div>
+</div>
+</div>
+
+<!-- MEETING -->
+<div class="section" id="meeting">
+<div class="section-heading">
+    <h2>Online Meeting</h2>
+    <span>Group Meeting</span>
+</div>
+<a class="meeting-card" href="https://meet.google.com/YOUR-MEETING-ID"
+   target="_blank" rel="noopener">
+    <div class="meeting-icon"><i class="bi bi-camera-video-fill"></i></div>
+    <div class="meeting-content">
+        <h3>Join Google Meet</h3>
+        <p>Click here to join the Al-Hamd Chit online meeting</p>
+    </div>
+    <i class="bi bi-arrow-up-right"></i>
+</a>
+</div>
+
+<!-- LUCKY WHEEL -->
+<div class="section" id="wheelSection">
+<div class="section-heading">
+    <h2>Monthly Lucky Draw</h2>
+    <span>Al-Hamd Chit</span>
+</div>
+
+<div class="wheel-card">
+    <h2>🎡 Lucky Wheel</h2>
+    <p class="subtitle">എല്ലാ Token-നും തുല്യ സാധ്യത</p>
+
+    <div class="wheel-wrap">
+        <div class="pointer"></div>
+        <canvas id="wheel" width="840" height="840"></canvas>
+        <div class="hub">LUCKY</div>
     </div>
 
-
-    <!-- =====================================================
-         JAVASCRIPT
-    ===================================================== -->
-
-    <script>
-
-        /* =====================================================
-           DOWNLOAD PROFESSIONAL PDF
-        ===================================================== */
-
-        async function downloadPDF() {
-
-            const report = document.getElementById("report");
-            const button = document.querySelector(".pdf-button");
-
-            if (!report || !button) {
-                return;
-            }
-
-
-            /* Prevent multiple clicks */
-
-            button.disabled = true;
-
-            button.innerHTML =
-                '<i class="bi bi-hourglass-split me-1"></i> Preparing PDF...';
-
-
-            /* Enable PDF mode */
-
-            document.body.classList.add("pdf-mode");
-
-
-            /* Give browser time to apply PDF styles */
-
-            await new Promise(function(resolve) {
-
-                setTimeout(resolve, 400);
-
-            });
-
-
-            const options = {
-
-                margin: [
-                    0.30,
-                    0.30,
-                    0.35,
-                    0.30
-                ],
-
-                filename:
-                    "Al-Hamd-Chit-2026-Report.pdf",
-
-
-                image: {
-                    type: "jpeg",
-                    quality: 0.98
-                },
-
-
-                html2canvas: {
-
-                    scale: 2,
-
-                    useCORS: true,
-
-                    allowTaint: false,
-
-                    backgroundColor: "#ffffff",
-
-                    logging: false,
-
-                    scrollX: 0,
-
-                    scrollY: 0,
-
-                    windowWidth:
-                        document.documentElement.scrollWidth
-
-                },
-
-
-                jsPDF: {
-
-                    unit: "in",
-
-                    format: "a4",
-
-                    orientation: "portrait",
-
-                    compress: true
-
-                },
-
-
-                pagebreak: {
-
-                    mode: [
-                        "css",
-                        "legacy"
-                    ],
-
-                    avoid: [
-
-                        ".header-card",
-
-                        ".summary-card",
-
-                        ".progress-card",
-
-                        ".meeting-card",
-
-                        ".table-card",
-
-                        ".rules-card",
-
-                        ".members-card",
-
-                        ".rule",
-
-                        "tr"
-
-                    ]
-
-                }
-
-            };
-
-
-            try {
-
-                await html2pdf()
-
-                    .set(options)
-
-                    .from(report)
-
-                    .toPdf()
-
-                    .get("pdf")
-
-                    .then(function(pdf) {
-
-
-                        /* Add page numbers */
-
-                        const totalPages =
-                            pdf.internal.getNumberOfPages();
-
-
-                        for (
-                            let page = 1;
-                            page <= totalPages;
-                            page++
-                        ) {
-
-                            pdf.setPage(page);
-
-
-                            const pageWidth =
-                                pdf.internal.pageSize.getWidth();
-
-                            const pageHeight =
-                                pdf.internal.pageSize.getHeight();
-
-
-                            /* Footer line */
-
-                            pdf.setDrawColor(
-                                227,
-                                232,
-                                229
-                            );
-
-                            pdf.setLineWidth(0.005);
-
-                            pdf.line(
-                                0.35,
-                                pageHeight - 0.42,
-                                pageWidth - 0.35,
-                                pageHeight - 0.42
-                            );
-
-
-                            /* Footer text */
-
-                            pdf.setFontSize(7);
-
-                            pdf.setTextColor(
-                                123,
-                                133,
-                                128
-                            );
-
-
-                            pdf.text(
-                                "Al-Hamd Chit · 2026",
-                                0.35,
-                                pageHeight - 0.23
-                            );
-
-
-                            pdf.text(
-                                "Page " +
-                                page +
-                                " of " +
-                                totalPages,
-
-                                pageWidth - 0.35,
-
-                                pageHeight - 0.23,
-
-                                {
-                                    align: "right"
-                                }
-                            );
-
-                        }
-
-                    })
-
-                    .save();
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    "PDF Error:",
-                    error
+    <button id="spinBtn" class="spin-button no-pdf" disabled>
+        <i class="bi bi-arrow-repeat"></i> SPIN
+    </button>
+
+    <div class="wheel-status" id="status">
+        Admin login required to spin
+    </div>
+    <div class="admin-hint no-pdf">
+        Only the logged-in administrator can start the draw.
+    </div>
+</div>
+
+<!--<div class="section">
+<div class="section-heading">
+    <h2>Spin History</h2>
+    <span>Previous winners</span>
+</div>
+<div class="history-card">
+    <ul class="history-list" id="history"></ul>
+</div>
+</div>-->
+</div>
+
+<!-- PAYMENT TRACKER -->
+<div class="section" id="tracker">
+<div class="section-heading">
+    <h2>Monthly Payment Tracker</h2>
+    <span>Oct 2026 – Jul 2027</span>
+</div>
+
+<div class="table-card">
+<div class="table-responsive">
+<table class="table payment-table">
+<thead>
+<tr>
+    <th>Member / Token</th>
+    <th>Oct<br>2026</th>
+    <th>Nov<br>2026</th>
+    <th>Dec<br>2026</th>
+    <th>Jan<br>2027</th>
+    <th>Feb<br>2027</th>
+    <th>Mar<br>2027</th>
+    <th>Apr<br>2027</th>
+    <th>May<br>2027</th>
+    <th>Jun<br>2027</th>
+    <th>Jul<br>2027</th>
+</tr>
+</thead>
+<tbody id="paymentBody"></tbody>
+</table>
+</div>
+</div>
+
+<div class="payment-legend">
+    <span><i class="bi bi-check-circle-fill text-success"></i> Paid</span>
+    <span><i class="bi bi-clock-fill text-warning"></i> Unpaid</span>
+    <span>Installment: <strong>₹1,000</strong></span>
+</div>
+<div class="admin-hint no-pdf">
+    Admin login ചെയ്ത് Paid / Unpaid ബട്ടണിൽ ക്ലിക്ക് ചെയ്ത് payment status മാറ്റാം.
+</div>
+</div>
+
+<!-- MEMBERS -->
+<div class="section" id="members">
+<div class="section-heading">
+    <h2>Members & Token Numbers</h2>
+    <span>10 Members</span>
+</div>
+<div class="members-card">
+<div class="row g-0" id="membersList"></div>
+</div>
+</div>
+
+<!-- RULES -->
+<div class="section" id="rules">
+<div class="section-heading">
+    <h2>Rules & Regulations</h2>
+    <span>Al-Hamd Chit</span>
+</div>
+
+<div class="rules-card">
+    <div class="rule">
+        <div class="rule-number">01</div>
+        <div>
+            <h6>Monthly Payment Date</h6>
+            <p>The monthly installment of <strong>₹1,000</strong> must be paid to the group leader between the <strong>1st and 9th</strong> of every month.</p>
+        </div>
+    </div>
+    <div class="rule">
+        <div class="rule-number">02</div>
+        <div>
+            <h6>Draw / Auction Time</h6>
+            <p>The online draw will be conducted on the <strong>10th of every month at 9:30 PM.</strong></p>
+        </div>
+    </div>
+    <div class="rule">
+        <div class="rule-number">03</div>
+        <div>
+            <h6>Fund Disbursement</h6>
+            <p>The winning amount will be handed over to the winner within <strong>10 days</strong> of the draw / auction.</p>
+        </div>
+    </div>
+    <div class="rule">
+        <div class="rule-number">04</div>
+        <div>
+            <h6>Punctuality & Cooperation</h6>
+            <p>Everyone is requested to pay the amount within the specified time. Those facing emergency situations should inform in advance.</p>
+        </div>
+    </div>
+    <div class="rule">
+        <div class="rule-number">05</div>
+        <div>
+            <h6>Transparency</h6>
+            <p>All monthly accounts will be updated in the group on the <strong>same day.</strong></p>
+        </div>
+    </div>
+    <div class="rule special-rule">
+        <div class="rule-number">06</div>
+        <div>
+            <h6>Special Note</h6>
+            <p>The chit amount for the <strong>first month</strong> goes to the chit organizer.</p>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+</main>
+<footer>© 2026 Al-Hamd Chit · All Rights Reserved</footer>
+</div>
+
+<!-- ADMIN LOGIN MODAL -->
+<div class="modal fade" id="loginModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered modal-sm">
+<div class="modal-content text-dark">
+    <div class="modal-header">
+        <h5 class="modal-title fs-6">Admin Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    </div>
+    <div class="modal-body">
+        <label class="form-label small">Admin Password</label>
+        <input type="password" id="pwd" class="form-control"
+               placeholder="Enter password" autocomplete="off">
+        <div id="pwdErr" class="text-danger small mt-2 d-none">
+            Incorrect password!
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-success btn-sm" id="loginOk">Login</button>
+    </div>
+</div>
+</div>
+</div>
+
+<!-- WINNER MODAL -->
+<div class="modal fade" id="winModal" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content text-dark text-center">
+    <div class="modal-header justify-content-center">
+        <h4 class="modal-title">🎉 Congratulations! 🎉</h4>
+    </div>
+    <div class="modal-body">
+        <p class="mb-1">Lucky Winner Token Number</p>
+        <div class="winner-number" id="winnerText"></div>
+        <p class="small text-muted">Al-Hamd Chit Monthly Draw</p>
+    </div>
+    <div class="modal-footer justify-content-center">
+        <button class="btn btn-success" data-bs-dismiss="modal">OK</button>
+    </div>
+</div>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// =======================================
+// ADMIN SETTINGS
+// =======================================
+
+const ADMIN_PASSWORD = "20262027";
+const SPIN_SECONDS = 30;
+
+// =======================================
+// MEMBERS AND TOKEN NUMBERS
+// =======================================
+
+// First 7 members: name + token.
+// Last 3 entries: token number only.
+
+const members = [
+    {name:"Sakheer Abrari", token:710, initials:"710"},
+    {name:"Sakheer Abrari", token:786, initials:"786"},
+    {name:"Irfan Abrari", token:333, initials:"333"},
+    {name:"Anas Moulavi", token:313, initials:"313"},
+    {name:"Althaf Abrari", token:777, initials:"777"},
+    {name:"Haleel Abrari", token:999, initials:"999"},
+    {name:"Nuaim Abrari", token:102, initials:"102"},
+    {name:"", token:444, initials:""},
+    {name:"", token:101, initials:""},
+    {name:"", token:111, initials:""}
+];
+
+const months = [
+    "Oct 2026","Nov 2026","Dec 2026",
+    "Jan 2027","Feb 2027","Mar 2027",
+    "Apr 2027","May 2027","Jun 2027","Jul 2027"
+];
+
+// October and November paid for all 10 members.
+// December to July unpaid.
+
+let payments = Array.from({length:10}, () =>
+    Array.from({length:10}, (_,i) => i === 0 || i === 1)
+);
+
+let history = [];
+let loggedIn = false;
+let spinning = false;
+
+// =======================================
+// LOCAL STORAGE
+// =======================================
+
+function saveData() {
+    try {
+        localStorage.setItem("alhamdPaymentsV3", JSON.stringify(payments));
+        localStorage.setItem("alhamdHistory", JSON.stringify(history));
+    } catch(e) {
+        console.warn("Browser storage unavailable", e);
+    }
+}
+
+function loadData() {
+    try {
+        const savedPayments = localStorage.getItem("alhamdPaymentsV3");
+        const savedHistory = localStorage.getItem("alhamdHistory");
+
+        if(savedPayments) {
+            const parsed = JSON.parse(savedPayments);
+
+            if(Array.isArray(parsed) && parsed.length === members.length) {
+                payments = parsed.map(row =>
+                    Array.from({length:10}, (_,i) => !!row[i])
                 );
-
-                alert(
-                    "Unable to generate PDF. Please try again."
-                );
-
             }
-
-
-            finally {
-
-                /* Restore website */
-
-                document.body.classList.remove(
-                    "pdf-mode"
-                );
-
-
-                /* Restore button */
-
-                button.disabled = false;
-
-                button.innerHTML =
-                    '<i class="bi bi-file-earmark-pdf me-1"></i> Download PDF Report';
-
-            }
-
         }
 
-    </script>
+        if(savedHistory) {
+            const parsed = JSON.parse(savedHistory);
+            if(Array.isArray(parsed)) history = parsed;
+        }
+    } catch(e) {
+        console.warn("Unable to load saved data", e);
+    }
+}
 
+// =======================================
+// PAYMENT TRACKER
+// =======================================
 
-    <!-- Bootstrap JS -->
+function memberDisplay(member) {
+    return member.name
+        ? `${member.name} — ${member.token}`
+        : String(member.token);
+}
 
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+function renderPayments() {
+    const body = document.getElementById("paymentBody");
+    body.innerHTML = "";
 
+    members.forEach((member,index) => {
+        const tr = document.createElement("tr");
 
+        const name = document.createElement("td");
+        name.className = "member-cell";
+        name.textContent = memberDisplay(member);
+        tr.appendChild(name);
+
+        months.forEach((month,m) => {
+            const td = document.createElement("td");
+            const btn = document.createElement("button");
+
+            btn.type = "button";
+            btn.className = "payment-badge " +
+                (payments[index][m] ? "paid" : "unpaid");
+            btn.textContent = payments[index][m] ? "Paid" : "Unpaid";
+
+            if(loggedIn) {
+                btn.classList.add("admin-edit");
+                btn.title = "Click to change payment status";
+
+                btn.addEventListener("click", () => {
+                    payments[index][m] = !payments[index][m];
+                    saveData();
+                    renderPayments();
+                    updateProgress();
+                });
+            } else {
+                btn.disabled = true;
+            }
+
+            td.appendChild(btn);
+            tr.appendChild(td);
+        });
+
+        body.appendChild(tr);
+    });
+}
+
+function updateProgress() {
+    const completed = months.filter((month,monthIndex) =>
+        payments.every(row => row[monthIndex])
+    ).length;
+
+    const percent = completed * 10;
+
+    document.getElementById("progressInfo").textContent =
+        `${completed} of 10 months completed`;
+
+    document.getElementById("progressPercent").textContent =
+        percent + "%";
+
+    document.getElementById("progressBar").style.width = percent + "%";
+}
+
+// =======================================
+// MEMBERS DISPLAY
+// =======================================
+
+function renderMembers() {
+    const box = document.getElementById("membersList");
+    box.innerHTML = "";
+
+    members.forEach((member,index) => {
+        const col = document.createElement("div");
+        col.className = "col-md-6";
+
+        const row = document.createElement("div");
+        row.className = "member";
+
+        const avatar = document.createElement("div");
+        avatar.className = "avatar";
+
+        // Female entries show a ticket icon, not a name.
+        avatar.textContent = member.name ? member.initials : "🎟";
+
+        const info = document.createElement("div");
+
+        const name = document.createElement("div");
+        name.className = "member-name";
+        name.textContent = member.name
+            ? member.name
+            : String(member.token);
+
+        const number = document.createElement("div");
+        number.className = "member-number";
+
+        number.textContent = member.name
+            ? "Token Number: " + member.token
+            : "";
+
+        info.append(name,number);
+        row.append(avatar,info);
+        col.appendChild(row);
+        box.appendChild(col);
+    });
+}
+
+// =======================================
+// LUCKY WHEEL
+// =======================================
+
+const tokens = [
+    710,786,333,313,777,
+    999,102,444,101,111
+];
+
+const colors = [
+    "#176b4d","#3498db","#2ecc71","#c49a43",
+    "#9b59b6","#1abc9c","#e67e22","#34495e",
+    "#e84393","#16a085"
+];
+
+const canvas = document.getElementById("wheel");
+const ctx = canvas.getContext("2d");
+const n = tokens.length;
+const seg = 360 / n;
+
+let rotation = 0;
+
+function drawWheel() {
+    const c = canvas.width / 2;
+    const r = c - 4;
+
+    for(let i=0;i<n;i++) {
+        const a0 = (-90 + i * seg) * Math.PI / 180;
+        const a1 = (-90 + (i + 1) * seg) * Math.PI / 180;
+
+        ctx.beginPath();
+        ctx.moveTo(c,c);
+        ctx.arc(c,c,r,a0,a1);
+        ctx.closePath();
+
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fill();
+
+        ctx.strokeStyle = "#fff";
+        ctx.lineWidth = 4;
+        ctx.stroke();
+
+        ctx.save();
+        ctx.translate(c,c);
+        ctx.rotate((a0+a1)/2);
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = "#fff";
+        ctx.font = "bold 54px sans-serif";
+        ctx.fillText(tokens[i],r-35,0);
+        ctx.restore();
+    }
+}
+
+drawWheel();
+
+function setRotation(deg) {
+    canvas.style.transform = `rotate(${deg}deg)`;
+}
+
+// =======================================
+// RANDOM NUMBER
+// =======================================
+
+function secureRandomInt(max) {
+    if(window.crypto && crypto.getRandomValues) {
+        const limit = Math.floor(0x100000000 / max) * max;
+        const buf = new Uint32Array(1);
+
+        do {
+            crypto.getRandomValues(buf);
+        } while(buf[0] >= limit);
+
+        return buf[0] % max;
+    }
+
+    return Math.floor(Math.random() * max);
+}
+
+const ease = t => t < 0.5
+    ? 2*t*t
+    : 1-Math.pow(-2*t+2,2)/2;
+
+// =======================================
+// SOUND EFFECTS
+// =======================================
+
+let audio = null;
+let master = null;
+let noiseBuf = null;
+
+function getAudio() {
+    try {
+        if(!audio) {
+            const AudioContextClass =
+                window.AudioContext || window.webkitAudioContext;
+
+            if(!AudioContextClass) return null;
+
+            audio = new AudioContextClass();
+
+            const comp = audio.createDynamicsCompressor();
+            master = audio.createGain();
+            master.gain.value = 0.65;
+
+            master.connect(comp);
+            comp.connect(audio.destination);
+
+            noiseBuf = audio.createBuffer(
+                1,audio.sampleRate*2,audio.sampleRate
+            );
+
+            const data = noiseBuf.getChannelData(0);
+
+            for(let i=0;i<data.length;i++) {
+                data[i] = Math.random()*2-1;
+            }
+        }
+
+        if(audio.state === "suspended") audio.resume();
+        return audio;
+    } catch(e) {
+        console.warn("Audio unavailable",e);
+        return null;
+    }
+}
+
+function tone(freq,dur,type="sine",vol=.15,when=0,lp=0) {
+    const a = getAudio();
+    if(!a) return;
+
+    const t = a.currentTime + when;
+    const o = a.createOscillator();
+    const g = a.createGain();
+
+    o.type = type;
+    o.frequency.value = freq;
+
+    g.gain.setValueAtTime(.0001,t);
+    g.gain.exponentialRampToValueAtTime(vol,t+.02);
+    g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+
+    let node = o;
+
+    if(lp) {
+        const f = a.createBiquadFilter();
+        f.type = "lowpass";
+        f.frequency.value = lp;
+        o.connect(f);
+        node = f;
+    }
+
+    node.connect(g);
+    g.connect(master);
+
+    o.start(t);
+    o.stop(t+dur+.05);
+}
+
+function noise(dur,vol,freq,when=0,type="bandpass",q=1) {
+    const a = getAudio();
+    if(!a || !noiseBuf) return;
+
+    const t = a.currentTime + when;
+    const src = a.createBufferSource();
+    src.buffer = noiseBuf;
+
+    const f = a.createBiquadFilter();
+    f.type = type;
+    f.frequency.value = freq;
+    f.Q.value = q;
+
+    const g = a.createGain();
+    g.gain.setValueAtTime(vol,t);
+    g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+
+    src.connect(f);
+    f.connect(g);
+    g.connect(master);
+
+    src.start(t,Math.random());
+    src.stop(t+dur);
+}
+
+function tick(speed=.5) {
+    const f = 900 + speed*900;
+    noise(.05,.35,f*1.5,0,"bandpass",4);
+    tone(f,.07,"triangle",.18);
+    tone(f/3,.09,"sine",.14);
+}
+
+function drumroll() {
+    for(let i=0;i<14;i++) {
+        noise(.06,.15+i*.012,300,i*.07,"bandpass",1.5);
+    }
+}
+
+function fanfare() {
+    const chords = [
+        [523,659,784],
+        [587,740,880],
+        [659,784,988],
+        [784,988,1175,1568]
+    ];
+
+    chords.forEach((chord,i) => {
+        chord.forEach(f => {
+            tone(f,i===3?1.3:.4,"sawtooth",.055,i*.22,2500);
+            tone(f*2,i===3?1.3:.4,"sine",.04,i*.22);
+        });
+    });
+
+    noise(1.2,.25,8000,.66,"highpass",.7);
+
+    for(let i=0;i<25;i++) {
+        noise(.08,.18,1500+Math.random()*2500,
+            .9+Math.random()*1.8,"bandpass",.8);
+    }
+}
+
+// =======================================
+// SPEAK WINNER
+// =======================================
+
+function speak(token) {
+    if(!("speechSynthesis" in window)) return;
+
+    const voices = speechSynthesis.getVoices();
+
+    const voice = voices.find(v => /en-IN/i.test(v.lang))
+        || voices.find(v => /en-US|en-GB/i.test(v.lang));
+
+    const utterance = new SpeechSynthesisUtterance(
+        `The winner is token number ${token}`
+    );
+
+    if(voice) {
+        utterance.voice = voice;
+        utterance.lang = voice.lang;
+    } else {
+        utterance.lang = "en-IN";
+    }
+
+    utterance.rate = .9;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utterance);
+}
+
+// =======================================
+// SPIN
+// =======================================
+
+const spinBtn = document.getElementById("spinBtn");
+const statusBox = document.getElementById("status");
+
+spinBtn.addEventListener("click",() => {
+    if(!loggedIn || spinning) return;
+
+    getAudio();
+
+    spinning = true;
+    spinBtn.disabled = true;
+    statusBox.textContent = "കറങ്ങുന്നു... Please wait!";
+
+    const winner = secureRandomInt(n);
+    const jitter = (Math.random()-.5)*seg*.7;
+
+    const start = rotation;
+    const current = start % 360;
+
+    const target = 360 - ((winner+.5)*seg+jitter);
+    const end = start + (360*25) + ((target-current+360)%360);
+    const total = end-start;
+
+    const t0 = performance.now();
+    let lastSeg = Math.floor(start/seg);
+    let rolled = false;
+
+    const speedNow = t => 1-Math.abs(t-.5)*2;
+
+    function frame(now) {
+        const t = Math.min((now-t0)/(SPIN_SECONDS*1000),1);
+        const cur = start + total*ease(t);
+
+        setRotation(cur);
+
+        const currentSegment = Math.floor(cur/seg);
+
+        if(currentSegment !== lastSeg) {
+            tick(Math.min(1,speedNow(t)));
+            lastSeg = currentSegment;
+        }
+
+        if(t>.9 && !rolled) {
+            rolled = true;
+            drumroll();
+        }
+
+        if(t<1) {
+            requestAnimationFrame(frame);
+        } else {
+            rotation = cur;
+            finishSpin(winner);
+        }
+    }
+
+    requestAnimationFrame(frame);
+});
+
+function finishSpin(winner) {
+    const token = tokens[winner];
+
+    statusBox.textContent = "Winner selected successfully!";
+    document.getElementById("winnerText").textContent = token;
+
+    history.unshift({
+        token:token,
+        date:new Date().toLocaleString()
+    });
+
+    history = history.slice(0,50);
+
+    saveData();
+    renderHistory();
+    fanfare();
+
+    bootstrap.Modal.getOrCreateInstance(
+        document.getElementById("winModal")
+    ).show();
+
+    setTimeout(() => speak(token),1200);
+
+    spinning = false;
+    spinBtn.disabled = false;
+}
+
+// =======================================
+// SPIN HISTORY
+// =======================================
+
+function renderHistory() {
+    const box = document.getElementById("history");
+    box.innerHTML = "";
+
+    if(history.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "No spin history yet.";
+        li.style.color = "#7b8580";
+        box.appendChild(li);
+        return;
+    }
+
+    history.forEach((item,index) => {
+        const li = document.createElement("li");
+
+        const left = document.createElement("span");
+        left.textContent = `Spin ${history.length-index} · ${item.date}`;
+
+        const right = document.createElement("strong");
+        right.textContent = item.token;
+
+        li.append(left,right);
+        box.appendChild(li);
+    });
+}
+
+// =======================================
+// ADMIN LOGIN / LOGOUT
+// =======================================
+
+const loginBtn = document.getElementById("loginBtn");
+
+const loginModal = bootstrap.Modal.getOrCreateInstance(
+    document.getElementById("loginModal")
+);
+
+const pwd = document.getElementById("pwd");
+
+loginBtn.addEventListener("click",() => {
+    if(loggedIn) {
+        if(spinning) return;
+
+        loggedIn = false;
+        spinBtn.disabled = true;
+        statusBox.textContent = "Admin login required to spin";
+
+        loginBtn.innerHTML =
+            '<i class="bi bi-lock"></i> Admin Login';
+
+        renderPayments();
+        return;
+    }
+
+    pwd.value = "";
+    document.getElementById("pwdErr").classList.add("d-none");
+    loginModal.show();
+});
+
+function doLogin() {
+    if(pwd.value === ADMIN_PASSWORD) {
+        loggedIn = true;
+
+        loginModal.hide();
+
+        loginBtn.innerHTML =
+            '<i class="bi bi-box-arrow-right"></i> Logout';
+
+        spinBtn.disabled = false;
+        statusBox.textContent = "Admin logged in. Ready to spin!";
+
+        renderPayments();
+    } else {
+        document.getElementById("pwdErr").classList.remove("d-none");
+    }
+}
+
+document.getElementById("loginOk").addEventListener("click",doLogin);
+
+pwd.addEventListener("keydown",e => {
+    if(e.key === "Enter") doLogin();
+});
+
+document.getElementById("loginModal").addEventListener(
+    "shown.bs.modal",() => pwd.focus()
+);
+
+// =======================================
+// PDF REPORT
+// =======================================
+
+async function downloadPDF() {
+    const report = document.getElementById("report");
+    const button = document.querySelector(
+        'button[onclick="downloadPDF()"]'
+    );
+
+    if(!report || !button || typeof html2pdf === "undefined") {
+        alert("PDF library is unavailable. Check your internet connection.");
+        return;
+    }
+
+    button.disabled = true;
+    button.innerHTML =
+        '<i class="bi bi-hourglass-split"></i> Preparing PDF...';
+
+    document.body.classList.add("pdf-mode");
+
+    try {
+        await new Promise(resolve => setTimeout(resolve,400));
+
+        const options = {
+            margin:[.3,.3,.4,.3],
+            filename:"Al-Hamd-Chit-2026-2027-Report.pdf",
+
+            image:{
+                type:"jpeg",
+                quality:.96
+            },
+
+            html2canvas:{
+                scale:2,
+                useCORS:true,
+                backgroundColor:"#ffffff",
+                logging:false,
+                scrollX:0,
+                scrollY:0,
+                windowWidth:document.documentElement.scrollWidth
+            },
+
+            jsPDF:{
+                unit:"in",
+                format:"a4",
+                orientation:"portrait",
+                compress:true
+            },
+
+            pagebreak:{
+                mode:["css","legacy"],
+                avoid:[
+                    ".summary-card",".progress-card",
+                    ".wheel-card",".rule","tr"
+                ]
+            }
+        };
+
+        await html2pdf().set(options).from(report).save();
+
+    } catch(error) {
+        console.error("PDF Error:",error);
+        alert("Unable to create PDF. Please try again.");
+    } finally {
+        document.body.classList.remove("pdf-mode");
+
+        button.disabled = false;
+        button.innerHTML =
+            '<i class="bi bi-file-earmark-pdf"></i> Download PDF Report';
+    }
+}
+
+// =======================================
+// INITIALIZE
+// =======================================
+
+loadData();
+renderPayments();
+renderMembers();
+renderHistory();
+updateProgress();
+
+</script>
 </body>
-
 </html>
